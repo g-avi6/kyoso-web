@@ -1,0 +1,118 @@
+/*
+  style.css
+  - 明るく親しみやすいデザイン
+  - 初心者向けのコメントを多めに記載
+*/
+
+:root{
+  --bg: #fffdf7;
+  --primary: #ff7a59; /* 明るいオレンジ */
+  --accent: #ffd166; /* 柔らかい黄 */
+  --muted: #6b6b6b;
+  --card-bg: #ffffff;
+  --container-width: 1000px;
+}
+
+/* ページ全体の基本 */
+*{box-sizing:border-box}
+body{
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #222;
+  line-height:1.6;
+  margin:0;
+}
+.container{
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:2rem;
+}
+
+/* ヒーローセクション */
+.hero{
+  background: linear-gradient(135deg, #ffe9d6 0%, #fff6e8 100%);
+  padding:4rem 0;
+  text-align:center;
+}
+.site-title{
+  font-size:2.2rem;
+  margin:0 0 .5rem 0;
+  color:var(--primary);
+}
+.catch{
+  font-size:1.1rem;
+  margin:0 0 1.2rem 0;
+  color:var(--muted);
+}
+.cta{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  padding:.8rem 1.2rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 18px rgba(255,122,89,0.18);
+}
+
+/* 特徴リスト */
+.features h2{margin-top:0}
+.feature-list{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:1rem;
+}
+.feature{
+  background:linear-gradient(180deg,#fff #f9f9f9);
+  padding:1rem;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04);
+}
+.feature h3{margin:.4rem 0}
+
+/* カード表示 */
+.cards h2{margin-top:0}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.card{
+  background:var(--card-bg);
+  padding:1.2rem;
+  border-radius:12px;
+  text-align:center;
+  /* 初期は少し下にずらして透明にしておき、表示時にフェードインさせる */
+  opacity:0;
+  transform:translateY(8px);
+  transition:transform .28s ease, box-shadow .18s ease, opacity .28s ease;
+  box-shadow:0 6px 20px rgba(0,0,0,0.04);
+}
+.card.visible{opacity:1; transform:none}
+.card:hover{transform:translateY(-6px); box-shadow:0 14px 30px rgba(0,0,0,0.08)}
+.card-icon{font-size:2rem; margin-bottom:.6rem}
+
+.more{background:linear-gradient(90deg,#fff6e8,#fffdf7); border-radius:12px; padding:1.4rem}
+.contact-btn{
+  display:inline-block;
+  margin-top:.6rem;
+  background:var(--accent);
+  color:#222;
+  padding:.6rem .9rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* フッター */
+.site-footer{padding:1.2rem; text-align:center; color:var(--muted)}
+
+/* レスポンシブ対応（小さい画面では列を1つに） */
+@media (max-width:800px){
+  .feature-list{grid-template-columns:1fr}
+  .container{padding:1rem}
+}
+
+/* 初心者向けコメント：ここまでが主な見た目の定義です。色や余白を変えるだけで雰囲気を簡単に調整できます。 */
